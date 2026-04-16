@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+
 using UnityEngine;
 
 public class scriptFacundo : MonoBehaviour
@@ -17,31 +17,26 @@ public class scriptFacundo : MonoBehaviour
     
     void Update()
     {
-        //Movimiento Horizontal
         float movimiento = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(movimiento * velocidad, rb.linearVelocity.y);
+        transform.Translate(Vector2.right * movimiento * velocidad * Time.deltaTime);
 
-        // Salto
-        if(Input.GetButtonDown("Salto") && EstaEnSuelo)
+        //Salto
+        if(Input.GetButtonDown("Jump") && EstaEnSuelo)
         {
             rb.AddForce(Vector2.up * FuerzaDeSalto, ForceMode2D.Impulse);
-
-            //Detección de Suelo
-
-            void OnCollisionEnter2D(Collision collision)
-            {
-                if (collision.gameObject.CompareTag("Suelo"))
-                {
-                    EstaEnSuelo = true;
-                }
-            }
-            void OnCollisionExit2D(Collision collision)
-            {
-                if (collision.gameObject.CompareTag("Suelo"))
-                {
-                    EstaEnSuelo = false;
-                }
-            }
         }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Suelo"))
+            EstaEnSuelo = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Suelo"))
+            EstaEnSuelo = false;
     }
 }
