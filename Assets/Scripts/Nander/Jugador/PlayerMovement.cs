@@ -2,21 +2,20 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movimiento : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     [SerializeField]
     private Rigidbody2D rb2d;
-
+    [SerializeField]
+    private InputActionReference inputMovement;
     private Vector2 dirMovement;
     private Vector2 lastDirection;
-    private InputActionReference inputMovement;
 
     // Importante: ¡Crear la referencia al InputAction aquí!
     void Awake()
     {
-        inputMovement = InputActionReference.Create(InputSystem.actions.FindActionMap("Jugador").FindAction("Mover"));
-        lastDirection = new Vector2(1.0f, 0.0f); // Por defecto el jugador apunta a la derecha
+        lastDirection = new Vector2(0.0f, -1.0f); // Por defecto el jugador apunta abajo
     }
 
     // Importante: ¡Siempre activar dicha referencia aquí!
@@ -41,5 +40,10 @@ public class Movimiento : MonoBehaviour
     void FixedUpdate()
     {
         rb2d.linearVelocity = dirMovement * speed;
+    }
+
+    public Vector2 LastDirection
+    {
+        get { return lastDirection; }
     }
 }

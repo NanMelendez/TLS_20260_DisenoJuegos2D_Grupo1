@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Suelo
+  - Enemigo
+  - PlayerAttack
+  - MeleeArea
+  - Pellet
   layers:
   - Default
   - TransparentFX
@@ -12,8 +16,8 @@ TagManager:
   - Enemigo
   - Water
   - UI
-  - 
-  - 
+  - Jugador
+  - Muros
   - 
   - 
   - 

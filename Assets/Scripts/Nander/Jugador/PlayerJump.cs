@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Salto : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
     public float jumpStrength;
     [SerializeField]
@@ -12,13 +12,9 @@ public class Salto : MonoBehaviour
     private Transform playerSpriteTransform;
     [SerializeField]
     private Transform transformShadow;
+    [SerializeField]
     private InputActionReference inputJump;
     private bool isJumpHeld;
-
-    void Awake()
-    {
-        inputJump = InputActionReference.Create(InputSystem.actions.FindActionMap("Jugador").FindAction("Saltar"));
-    }
 
     void OnEnable()
     {

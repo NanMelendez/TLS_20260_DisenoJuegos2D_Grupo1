@@ -144,7 +144,7 @@
                 {
                     "name": "right",
                     "id": "d997c4e7-712e-4b63-a30c-469ae6147539",
-                    "path": "<Keyboard>/rightCtrl",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
