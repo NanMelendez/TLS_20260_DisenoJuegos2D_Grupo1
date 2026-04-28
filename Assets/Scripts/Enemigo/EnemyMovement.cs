@@ -34,4 +34,9 @@ public class EnemyMovement : MonoBehaviour
     {
         rb2d.AddForce(rb2d.linearVelocity.normalized * -strength);
     }
+
+    internal void ApllySlow(float slowFactor, float slowDuration)
+    {
+        throw new NotImplementedException();
+    }
 }
