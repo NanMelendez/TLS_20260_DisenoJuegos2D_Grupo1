@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 spawnTimer = spawnInterval;
                 Summon();
-                currentEnemyCount++;
+                Debug.Log($"Conteo de enemigos: {currentEnemyCount}");
             }
         }
     }
@@ -38,6 +38,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject go = Instantiate(enemyInstance, transform.position, Quaternion.identity);
         go.GetComponent<EnemyMovement>().playerTransform = playerTransform;
         go.GetComponent<EnemyStats>().spawner = this;
+        currentEnemyCount++;
     }
 
     public void EnemyDeathSignal()
