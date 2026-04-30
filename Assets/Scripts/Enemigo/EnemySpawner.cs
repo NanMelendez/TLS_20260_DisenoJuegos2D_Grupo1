@@ -4,43 +4,40 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject enemyInstance;
+    [SerializeField]
+    private Transform playerTransform;
 
     public float spawnInterval;
     public int enemyLimit;
     private float spawnTimer;
-    private int prevEnemyLimit;
     private int currentEnemyCount;
 
     void Awake()
     {
         currentEnemyCount = 0;
         spawnTimer = spawnInterval;
-        prevEnemyLimit = enemyLimit;
     }
 
     void Update()
     {
-        if (enemyLimit != prevEnemyLimit)
-        {
-            
-        }
-
         if (spawnInterval > 0 && enemyLimit >= 0)
         {
             if (spawnTimer > 0)
                 spawnTimer -= Time.deltaTime;
-            else
+            else if (currentEnemyCount < enemyLimit || enemyLimit == -1)
             {
                 spawnTimer = spawnInterval;
                 Summon();
-
+                currentEnemyCount++;
             }
         }
     }
 
     public void Summon()
     {
-        Instantiate(enemyInstance, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(enemyInstance, transform.position, Quaternion.identity);
+        go.GetComponent<EnemyMovement>().playerTransform = playerTransform;
+        go.GetComponent<EnemyStats>().spawner = this;
     }
 
     public void EnemyDeathSignal()

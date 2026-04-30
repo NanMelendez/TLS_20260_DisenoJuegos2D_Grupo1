@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -8,6 +9,8 @@ public class EnemyStats : MonoBehaviour
     [SerializeField]
     private int damage;
     private EnemyMovement movement;
+    [NonSerialized]
+    public EnemySpawner spawner;
 
     void Awake()
     {
@@ -40,6 +43,8 @@ public class EnemyStats : MonoBehaviour
         {
             movement.shouldStopMoving = true;
             Destroy(gameObject, 0.5f);
+            if (spawner)
+                spawner.EnemyDeathSignal();
         }
     }
 

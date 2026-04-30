@@ -4,8 +4,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
-    [SerializeField]
-    private Transform playerTransform;
+    public Transform playerTransform;
     private Rigidbody2D rb2d;
     private Vector2 followDir = new Vector2(1.0f, 0.0f);
     [NonSerialized]
