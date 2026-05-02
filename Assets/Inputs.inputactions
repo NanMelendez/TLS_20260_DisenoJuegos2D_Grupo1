@@ -50,6 +50,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Inventario",
+                    "type": "Button",
+                    "id": "c9129ffa-6fe8-43e0-b8a2-cb27b06308e4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -215,6 +224,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Saltar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67d1a13b-d5a7-499d-8367-999c7ca99583",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventario",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
